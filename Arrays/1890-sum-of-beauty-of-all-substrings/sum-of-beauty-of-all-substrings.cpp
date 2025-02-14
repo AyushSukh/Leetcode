@@ -1,21 +1,28 @@
 class Solution {
 public:
-    int ans = 0;
     int beautySum(string s) {
+        int ans = 0;
+        int n = s.length();
 
-        for (int i = 0; i < s.length(); i++) {
-            map<char, int> mp;
-            for (int j = i; j < s.length(); j++) {
-                mp[s[j]]++;
+        for (int i = 0; i < n; i++) {
+            int charFrequency[26] = {0};
+            int maxFreq = 0, minFreq = INT_MAX;
 
-                int leastFrequent = INT_MAX;
-                int mostFrequent = INT_MIN;
+            for (int j = i; j < n; j++) {
+                int charIndex = s[j] - 'a';
+                charFrequency[charIndex]++;
 
-                for (auto it : mp) {
-                    leastFrequent = min(leastFrequent, it.second);
-                    mostFrequent = max(mostFrequent, it.second);
+                maxFreq = max(maxFreq, charFrequency[charIndex]);
+
+                
+                minFreq = INT_MAX;
+                for (int k = 0; k < 26; k++) {
+                    if (charFrequency[k] > 0) {
+                        minFreq = min(minFreq, charFrequency[k]);
+                    }
                 }
-                ans += mostFrequent - leastFrequent;
+
+                ans += (maxFreq - minFreq);
             }
         }
         return ans;
