@@ -10,7 +10,7 @@ public:
         if (grid[0][0] == 0 && n == 1 && m == 1) {
             return 1;
         }
-        vector<vector<int>> dist(n, vector<int>(m, 1e7));
+        vector<vector<int>> dist(n, vector<int>(m, 1e4));
         dist[0][0] = 0;
 
         queue<pair<int, pair<int, int>>> q;
