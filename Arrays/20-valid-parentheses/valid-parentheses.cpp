@@ -1,24 +1,20 @@
-#include <stack>
-#include <unordered_map>
-using namespace std;
-
 class Solution {
 public:
     bool isValid(string s) {
-        stack<char> st; // Stack for opening brackets
-        unordered_map<char, char> hash = {{')', '('}, {']', '['}, {'}', '{'}};
-        
+        stack<char> st;
+        unordered_map<char, char> hash{{')', '('}, {']', '['}, {'}', '{'}};
+
         for (char c : s) {
-            if (hash.count(c)) { // If c is a closing bracket
+            if (hash.count(c)) {
                 if (!st.empty() && st.top() == hash[c]) {
-                    st.pop(); // Pop the matching opening bracket
+                    st.pop();
                 } else {
-                    return false; // Invalid if no match
+                    return false;
                 }
             } else {
-                st.push(c); // Push opening brackets
+                st.push(c);
             }
         }
-        return st.empty(); // Valid if stack is empty
+        return st.empty();
     }
 };
