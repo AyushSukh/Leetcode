@@ -1,1 +1,1 @@
-<h2>search-in-a-binary-search-tree Notes</h2><hr>[ Time taken: 3 m 4 s ]
+<h2>search-in-a-binary-search-tree Notes</h2><hr>[ Time taken: 5 m 15 s ]
